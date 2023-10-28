@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Moderator Application</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Moderator Application</h1>
+    </header>
+    <nav>
+        <!-- Navigation menu if needed -->
+    </nav>
+    <main>
+        <section class="application-form">
+            <h2>Apply to be a Moderator</h2>
+            <form onsubmit="sendEmail(); reset(); return false;">
+                <label for="discordUsername">Your Discord Username:</label>
+                <input type="text" id="discordUsername" name="discordUsername" required>
+                
+                <label for="moderatingExperience">Do you have any previous experience with moderating? If so, name a few servers you've been moderating:</label>
+                <textarea id="moderatingExperience" name="moderatingExperience" required></textarea>
+                
+                <label for="email">Enter your email adress</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="contribution">What would you add/bring to the server as a moderator?</label>
+                <textarea id="contribution" name="contribution" required></textarea>
+                
+                <label for="aboutYourself">Tell us a bit about yourself. Please include your preferred name, age, hobbies, activity on Discord. This won't be shared anywhere.</label>
+                <textarea id="aboutYourself" name="aboutYourself" required></textarea>
+                
+                <label for="handleArgument">How would you handle an argument between two members? 1st member is your friend, meanwhile the 2nd one is a random person.</label>
+                <textarea id="handleArgument" name="handleArgument" required></textarea>
+                
+                <label for="handleRaid">How would you handle a raid?</label>
+                <textarea id="handleRaid" name="handleRaid" required></textarea>
+                
+                <label for="inappropriateContent">Someone posted inappropriate pictures in the server, what do you do?</label>
+                <textarea id="inappropriateContent" name="inappropriateContent" required></textarea>
+                
+                <label for="verification">Can you handle simple verifications?</label>
+                <textarea id="verification" name="verification" required></textarea>
+                
+                <label for="additionalInfo">If there's anything you'd like to add, feel free to do so.</label>
+                <textarea id="additionalInfo" name="additionalInfo"></textarea>
+
+                <button type="submit">Submit Application
+                    <a href="Thank_you.html">Go to Thank You Page</a>
+                </button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        &copy; 2023 Moderator Application by Not
+    </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail() {
+            Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "imnotme909@gmail.com",
+            Password : "6A7C6873D51BF289A3ECB55AE0CA66C6F7D7",
+            To : 'imnotme909@gmail.com',
+            From : document.getElementById("email").value ,
+            Subject : "New application",
+            Body : "Username" + document.getElementById("discordUsername")
+}).then(
+  message => alert(message)
+);
+        }
+    </script>
+</body>
+</html>
